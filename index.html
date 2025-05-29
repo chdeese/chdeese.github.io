@@ -865,48 +865,6 @@
                     <h2>About Me</h2>
                     <p>Junior Game Programmer with an interest in Game Physics.</p>
                     <p>I bring game ideas to life!</p>
-                    
-                    <div class="skills">
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Unreal Engine</span>
-                                <span>40%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="95"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Unity</span>
-                                <span>30%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>C++</span>
-                                <span>35%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="80"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>C#</span>
-                                <span>20%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -917,7 +875,7 @@
             
             <div class="portfolio-gallery">
                 <div class="portfolio-item">
-                    <img src="/api/placeholder/500/350" alt="Project 1">
+                    <img src="./img/escape-velocity-gameplay-perspective.png" alt="Escape Velocity">
                     <div class="portfolio-description">
                         <div class="portfolio-category">Unreal Engine</div>
                         <h3>Escape Velocity</h3>
@@ -930,7 +888,7 @@
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="/api/placeholder/500/350" alt="Project 2">
+                    <img src="./img/looterland.png" alt="Looterland">
                     <div class="portfolio-description">
                         <div class="portfolio-category">Unity</div>
                         <h3>Looterland</h3>
@@ -943,7 +901,7 @@
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="/api/placeholder/500/350" alt="Project 3">
+                    <img src="./img/slingin-macros-logo.png" alt="Slingin Macros">
                     <div class="portfolio-description">
                         <div class="portfolio-category">Unity VR</div>
                         <h3>Slingin' Macros</h3>
@@ -957,56 +915,6 @@
             </div>
         </section>
         
-        <section id="contact" class="section">
-            <h2>Contact me</h2>
-            <div class="contact-wrapper">
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="button">Send Message</button>
-                </form>
-                
-                <div id="form-status"></div>
-                
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>Feel free to reach out with any questions or opportunities.</p>
-                    
-                    <div class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <span>cdeesemail@gmail.com</span>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Houma, LA</span>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
     <a href="#" class="back-to-top" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
@@ -1082,48 +990,6 @@
                     });
                 });
             }
-            
-            // Initialize skill bars
-            const skillBars = document.querySelectorAll('.skill-progress');
-            setTimeout(() => {
-                skillBars.forEach(skill => {
-                    const width = skill.getAttribute('data-width');
-                    skill.style.width = `${width}%`;
-                });
-            }, 1000);
-            
-            // Handle contact form submission
-            const contactForm = document.getElementById('contact-form');
-            const formStatus = document.getElementById('form-status');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Get form values
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const subject = document.getElementById('subject').value;
-                    const message = document.getElementById('message').value;
-                    
-                    // In a real implementation, you would send this data to a server
-                    // Since GitHub Pages only hosts static sites, you'd need an external service
-                    
-                    // For demo purposes, we'll just show a success message
-                    formStatus.textContent = `Thank you, ${name}! Your message has been received. I'll get back to you shortly.`;
-                    formStatus.className = 'success';
-                    formStatus.style.display = 'block';
-                    
-                    // Reset the form
-                    contactForm.reset();
-                    
-                    // Hide the success message after 5 seconds
-                    setTimeout(function() {
-                        formStatus.style.display = 'none';
-                    }, 5000);
-                });
-            }
-            
             // Initialize section visibility on page load
             const sections = document.querySelectorAll('.section');
             sections.forEach((section, index) => {
@@ -1134,42 +1000,8 @@
         });
     </script>
 </body>
-</html>    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle contact form submission
-            const contactForm = document.getElementById('contact-form');
-            const formStatus = document.getElementById('form-status');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Get form values
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const subject = document.getElementById('subject').value;
-                    const message = document.getElementById('message').value;
-                    
-                    // In a real implementation, you would send this data to a server
-                    // Since GitHub Pages only hosts static sites, you'd need an external service
-                    // like Formspree, Netlify Forms, or a custom serverless function
-                    
-                    // For demo purposes, we'll just show a success message
-                    formStatus.textContent = `Thank you, ${name}! Your message has been received.`;
-                    formStatus.className = 'success';
-                    formStatus.style.display = 'block';
-                    
-                    // Reset the form
-                    contactForm.reset();
-                    
-                    // Hide the success message after 5 seconds
-                    setTimeout(function() {
-                        formStatus.style.display = 'none';
-                    }, 5000);
-                });
-            }
-        });
-    </script><!DOCTYPE html>
+</html>   
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1279,12 +1111,6 @@
             color: #4285f4;
         }
         
-        /* Contact Form Styles */
-        .contact-form {
-            max-width: 600px;
-            margin: 2rem 0;
-        }
-        
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -1352,7 +1178,7 @@
     <div class="container">
         <section id="about">
             <h2>About Me</h2>
-            <p>Hello! I'm a game programmer passionate exciting gameplay expereinces! This site was created using GitHub Pages.</p>
+            <p>Hello! I'm a game programmer passionate exciting gameplay experiences! This site was created using GitHub Pages.</p>
         </section>
         
         <section id="projects">
@@ -1361,7 +1187,7 @@
             
             <div class="portfolio-gallery">
                 <div class="portfolio-item">
-                    <img src="/api/placeholder/400/300" alt="Project 1">
+                    <img src="./img/escape-velocity-gameplay-perspective.png" alt="Escape Velocity">
                     <div class="portfolio-description">
                         <h3>Escape Velocity</h3>
                         <p>This is a description of your first project. Explain what technologies you used and what problems you solved.</p>
@@ -1370,7 +1196,7 @@
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="/api/placeholder/400/300" alt="Project 2">
+                    <img src="./img/looterland.png" alt="Looterland">
                     <div class="portfolio-description">
                         <h3>Looterland</h3>
                         <p>This is a description of your second project. Explain what technologies you used and what problems you solved.</p>
@@ -1379,7 +1205,7 @@
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="/api/placeholder/400/300" alt="Project 3">
+                    <img src="./img/slingin-macros-logo.png" alt="Slingin Macros">
                     <div class="portfolio-description">
                         <h3>Slingin' Macros</h3>
                         <p>This is a description of your third project. Explain what technologies you used and what problems you solved.</p>
@@ -1388,40 +1214,9 @@
                 </div>
             </div>
         </section>
-        
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Feel free to reach out using the form below:</p>
-            
-            <form id="contact-form" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                
-                <button type="submit" class="button">Send Message</button>
-            </form>
-            
-            <div id="form-status"></div>
-            
             <div class="contact-info">
                 <p>Or reach me through:</p>
-                <p>Email: your.email@example.com</p>
+                <p>Email: cdeesemail@gmail.com</p>
                 <p>GitHub: <a href="https://github.com/chdeese">github.com/chdeese</a></p>
                 <p>LinkedIn: <a href="https://linkedin.com/in/chdeese">linkedin.com/in/chdeese</a></p>
             </div>
