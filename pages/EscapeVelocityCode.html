@@ -587,6 +587,18 @@
             transform: scale(1.03);
         }
 
+        .embed-about-text{
+            margin-top: 3rem;
+        }
+
+        .embed-about-text h2 {
+            margin-top: 0;
+        }
+
+        .embed-about-text p {
+            margin-bottom: 1.5rem;
+        }
+
         .about-text h2 {
             margin-top: 0;
         }
@@ -712,7 +724,43 @@
             color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
         }
+
+        iframe {
+            width: 100%;
+            height: auto;
+            min-height: 500px;
+        }
         
+        .about-content .display-image {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            width: 100%;
+            margin: 2rem 0;
+            order: 3;
+        }
+
+        .about-content .display-image image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .display-image {
+            grid-column: 1 / -1; 
+            width: 100%;
+            margin: 2rem 0;
+        }
+
+.display-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+}
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .about-content {
@@ -874,20 +922,39 @@
     <nav id="main-nav">
         <div class="nav-container">
             <a href="../index.html" class="button">Home</a>
+            <a href="./EscapeVelocity.html" class="button">Back</a>
     </nav>
     
     <div class="container">
         <section id="about" class="section">
             <div class="about-content">
-                <div class="about-image">
-                    <img src="../img/escape-velocity/escape-velocity-gameplay-perspective.png" alt="Escape Velocity Image">
-                </div>
                 <div class="about-text">
-                    <h2>Overview</h2>
-                    <p>A 3D platformer about escaping the pull of planets!</p>
-                    <p>The Player comes equipped with a propulsion cannon used for traversal.</p>
+                    <h2>Escape Velocity Code Examples</h2>
                 </div>
             </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Dynamic Gravity System</h2>
+                    <p>I created three types of Gravity Platforms, two of which are unused in the final game.</p>
+                    <p>All share a base class <em>GravitySource</em>, which contains a UCurveFloat for dynamic gravity strengths.</p>
+                </div>
+                <div class="about-image">
+                    <img src="../img/escape-velocity/planets.png" alt="Platform Types">
+                </div>
+            </div>
+            <div class="embed-about-text">
+                <h2><em>GravitySource</em> Base Class</h2>
+            </div>
+            <div class="display-image">
+                <img src="../img/escape-velocity/planets.png">
+            </div>
+            <div class="embed-about-text">
+                <h2>Dynamic Gravity System</h2>
+            </div>
+            <iframe src="https://blueprintue.com/" scrolling="no" allowfullscreen></iframe>
         </section>
 
         <section id="about" class="section">
@@ -904,7 +971,7 @@
         </section>
 
         <section id="about" class="section">
-            <div class="about-content centered">
+            <div class="about-content centered spaced-top">
                 <div class="about-text">
                     <h2>My Contribution</h2>
                     <ul>
@@ -917,7 +984,7 @@
         </section>
         
         <section id="projects" class="section">
-            <h2><a href="./EscapeVelocityCode.html">See My Code</a></h2>
+            <h2>See My Code</h2>
         </section>
         
     </div>
