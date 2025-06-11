@@ -945,16 +945,141 @@
                     <img src="../img/escape-velocity/planets.png" alt="Platform Types">
                 </div>
             </div>
+            <div class="about-text">
+                <h2><em>GravitySource</em> C++ code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Property used to store a UCurveFloat for curved gravity strength.
+                    </figcaption>
+                    <img src="../img/escape-velocity/gravity-source-header.png">
+                </figure>
+            </div>
+            <div class="about-text">
+                <h2><em>GravityPlayerController</em> C++ code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        GravityPlayerController - header
+                    </figcaption>
+                    <img src="../img/escape-velocity/gravity-player-controller-header.png">
+                </figure>
+                <br>
+                <br>
+                <figure>
+                    <figcaption>
+                        GravityPlayerController - <em>UpdateGravityRotation</em>
+                    </figcaption>
+                    <img src="../img/escape-velocity/gravity-player-controller-update-rotation.png">
+                </figure>
+                <br>
+                <br>
+                <figure>
+                    <figcaption>
+                        GravityPlayerController - Custom Input
+                    </figcaption>
+                    <img src="../img/escape-velocity/gravity-player-controller-input.png">
+                </figure>
+                <br>
+                <br>
+                <figure>
+                    <figcaption>
+                        GravityPlayerController - Get Rotations
+                    </figcaption>
+                    <img src="../img/escape-velocity/gravity-player-controller-get-rotations.png">
+                </figure>
+            </div>
             <div class="embed-about-text">
-                <h2><em>GravitySource</em> Base Class</h2>
+                <h2>Player-Gravity Blueprint Implementations</h2>
             </div>
-            <div class="display-image">
-                <img src="../img/escape-velocity/planets.png">
-            </div>
-            <div class="embed-about-text">
-                <h2>Dynamic Gravity System</h2>
-            </div>
-            <iframe src="https://blueprintue.com/" scrolling="no" allowfullscreen></iframe>
+            <figure>
+                <figcaption>
+                    Collects overlapping gravity fields. Executed on BeginPlay.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/e9xeqj0j/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Finds and assigns the nearest gravity source to be the primary source of gravity. Executed on Tick.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/4nlt2omv/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Returns the distance between an actor and a gravity source surface.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/7jkoc22c/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Returns the distance between an actor and the nearest vertex on a static mesh.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/ey7q729s/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Lerps the gravity direction of the player towards the primary source of gravity and sets the current gravity strength. Executed on Tick.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/h-zuulw8/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Returns the gravity direction between an actor and a gravity source.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/r825_-3l/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Returns the strength of gravity from the gravity source's UCurveFloat based on distance from the gravity surface.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/idfsgwvc/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Returns the distance of the area between the edge of the gravity field and the gravity surface.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/2slq1k1t/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Rotates the player towards the active gravity direction, if no gravity source is nearby, sets up in-space rotation. Executed on Tick.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/hc5v22va/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Corrects player rotations when entering a space with no nearby gravity sources.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/jme7ztp9/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Applies gravity forces from applied gravity sources that are not the primary source of gravity. Executed on Tick.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/2-_00_rt/" scrolling="no" allowfullscreen></iframe>
+            </figure>
         </section>
 
         <section id="about" class="section">
