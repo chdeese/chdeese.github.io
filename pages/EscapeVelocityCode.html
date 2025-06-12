@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Website</title>
+    <title>Escape Velocity</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
@@ -909,6 +909,46 @@
             background-color: var(--primary-dark);
             transform: translateY(-5px);
         }
+        /* Table of Contents Styles */
+        #table-of-contents * {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .toc-container {
+            max-width: 400px;
+            margin: 2rem auto;
+        }
+
+        .toc-nav {
+            width: 100%;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-item {
+            margin-bottom: 0.75rem;
+        }
+
+        .toc-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .toc-link {
+            color: var(--primary-color);
+            text-decoration: underline;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .toc-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -926,15 +966,33 @@
     </nav>
     
     <div class="container">
-        <section id="about" class="section">
-            <div class="about-content">
+        <section id="table-of-contents" class="section">
+            <div class="about-content centered">
                 <div class="about-text">
-                    <h2>Escape Velocity Code Examples</h2>
+                    <h2>Table of Contents</h2>
+                    <div class="toc-container">
+                        <nav class="toc-nav">
+                            <ul class="toc-list">
+                                <li class="toc-item">
+                                    <a href="#gravity-system" class="toc-link">Dynamic Gravity System</a>
+                                </li>
+                                <li class="toc-item">
+                                    <a href="#player-movement" class="toc-link">Player Rotation and Locomotion</a>
+                                </li>
+                                <li class="toc-item">
+                                    <a href="#user-interface" class="toc-link">User Interface</a>
+                                </li>
+                                <li class="toc-item">
+                                    <a href="#other-contributions" class="toc-link">Other Contributions</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section">
+        <section id="gravity-system" class="section">
             <div class="about-content">
                 <div class="about-text">
                     <h2>Dynamic Gravity System</h2>
@@ -1080,38 +1138,258 @@
                 </figcaption>
                 <iframe src="https://blueprintue.com/render/2-_00_rt/" scrolling="no" allowfullscreen></iframe>
             </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Adds new overlapping gravity fields to an array of applied gravity sources. Executed on ActorBeginOverlap.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/bpqzrf8-/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Removes gravity fields that are no longer overlapping with the player. Exectued on ActorEndOverlap.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/-qlzv1w9/" scrolling="no" allowfullscreen></iframe>
+            </figure>
         </section>
 
-        <section id="about" class="section">
+        <section id="player-movement" class="section">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Story</h2>
-                    <p>Explorer Sal is tasked to find a rare mineral!</p>
-                    <p>Get to the last planet.</p>
+                    <h2>Player Rotation and Locomotion</h2>
+                    <p>The player's upper body rotates to face the direction the camera is facing when on the surface of a planet.</p>
+                    <p>The player blueprint passes input data to GravityPlayerController to be processed relative to gravity.</p>
+                    <p>The user can also rotate the player 180 degrees to propel themselves forwards. </p>
                 </div>
                 <div class="about-image">
-                    <img src="../img/escape-velocity/planets.png" alt="Escape Velocity Image">
+                    <img src="../img/escape-velocity/planets.png" alt="Platform Types">
                 </div>
             </div>
+            <div class="embed-about-text">
+                <h2>Player Rotation/Locomotion Blueprint Implementation</h2>
+            </div>
+            <figure>
+                <figcaption>
+                    Applies rotation input to GravityPlayerController and calculates relative pitch for torso-rotation. Executed on camera input received.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/ea2y0nx8/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Applies movement input to GravityPlayerController, input direction is passed to the animator to blend animations. Executed on movement input received.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/16r7z9af/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <div class="embed-about-text">
+                <h2>180 Rotation Implementation.</h2>
+            </div>
+            <figure>
+                <figcaption>
+                    Determines if player should aim forwards or backwards. Executed on "aiming" input received.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/0yc_ly8a/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <figure>
+                <figcaption>
+                    Lerps player rotation to face forwards or backwards. Executed on Tick.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/48eufxql/" scrolling="no" allowfullscreen></iframe>
+            </figure>
         </section>
 
-        <section id="about" class="section">
+        <section id="user-interface" class="section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>User Interface</h2>
+                    <p>I designed functionality for most UI elements. </p>
+                    <p>All menus use custom widgets to combine input received from gamepad and keyboard interaction.</p>
+                </div>
+                <div class="about-image">
+                    <img src="../img/escape-velocity/planets.png" alt="Platform Types">
+                </div>
+            </div>
+            <div class="embed-about-text">
+                <h2>Custom Widgets Blueprint Implementations</h2>
+            </div>
+            <figure>
+                <figcaption>
+                    Custom Button.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/s2b7l049/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Custom Option Selector.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/2b8hecxu/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Custom Slider.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/-2ev--yd/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <div class="embed-about-text">
+                <h2>Menu Blueprint Implementations</h2>
+            </div>
+            <figure>
+                <figcaption>
+                   Main Menu.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/i2nds1v7/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Options Menu.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/8ot6o7_e/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Options Menu - Set Video Options.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/w7mx-2oi/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Options Menu - Set Slider Values.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/w_i6m2xd/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Options Menu - Set Default Values.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/neoj6hdd/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Pause Menu.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/db-w_l_s/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Swap to Pause Menu. Executed on pause input received.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/0qymge_4/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Level End Menu.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/o-38xvd6/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Game Over Menu.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/6l1xg-4d/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <div class="embed-about-text">
+                <h2>Player Widget Implementations</h2>
+            </div>
+            <figure>
+                <figcaption>
+                    Gameplay HUD.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/11npg7t7/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <figure>
+                <figcaption>
+                    Rotate prograde/retrograde velocity marker widget components relative to the player. Executed on Tick. 
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/211ay7vs/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Returns the desired location for prograde/retrograde widgets in world-space. 
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/qu8_swy_/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <div class="embed-about-text">
+                <h2>Widget Management Implementations</h2>
+            </div>
+            <figure>
+                <figcaption>
+                    Widget Swapping.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/qczdb89q/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Remove BeginPlay Widgets from the player's viewport.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/iujd7s2w/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Remove Temporary widgets from the player's viewport.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/i0o7eonj/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Add starting widgets to the player's viewport.
+                </figcaption>
+                <iframe src="https://blueprintue.com/render/uuxsk-13/" scrolling="no" allowfullscreen></iframe>
+            </figure>
+        </section>
+
+        <section id="other-contributions" class="section">
             <div class="about-content centered spaced-top">
                 <div class="about-text">
-                    <h2>My Contribution</h2>
+                    <h2>Other Contributions</h2>
                     <ul>
-                        <li>Dynamic Gravity System</li>
-                        <li>Locomotion</li>
-                        <li>UI Implementation</li>
+                        <li>Documentation</li>
+                        <li>Level Sequence</li>
+                        <li>Checkpoints</li>
+                        <li>Gameplay Balancing</li>
                     </ul>
                 </div>
             </div>
         </section>
-        
-        <section id="projects" class="section">
-            <h2>See My Code</h2>
-        </section>
-        
     </div>
     <a href="#" class="back-to-top" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
