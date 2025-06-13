@@ -11,9 +11,9 @@
             --primary-color: #4285f4;
             --primary-dark: #3367d6;
             --secondary-color: #34a853;
-            --dark-color: #292929;
-            --light-color: #757575;
-            --gray-color: #757575;
+            --dark-color: #1b1b1b;
+            --light-color: #dbdbdb;
+            --gray-color: #969494;
             --success-color: #4caf50;
             --error-color: #f44336;
             --transition: all 0.3s ease;
@@ -32,7 +32,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--dark-color);
-            background-color: var(--light-color);
+            background-color: var(--gray-color);
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
@@ -89,7 +89,7 @@
         
         /* Layout */
         .container {
-            max-width: 1200px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -99,7 +99,7 @@
             opacity: 0;
             transform: translateY(20px);
             transition: var(--transition);
-            background-color: white;
+            background-color: var(--light-color);
             padding: 3rem;
             border-radius: 10px;
             box-shadow: var(--shadow-light);
@@ -195,7 +195,7 @@
         }
         
         nav {
-            background-color: white;
+            background-color: var(--dark-color);
             padding: 0;
             position: sticky;
             top: 0;
@@ -211,7 +211,7 @@
 
         .nav-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 1.25rem 2rem;
         }
@@ -463,7 +463,7 @@
             border: 1px solid rgba(244, 67, 54, 0.3);
             display: block !important;
         }
-        
+
         .contact-info {
             background-color: var(--primary-color);
             color: white;
@@ -540,6 +540,35 @@
             align-items: center;
         }
 
+        .about-content.centered {
+            grid-template-columns: 1fr;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content.centered ul {
+            grid-template-columns: 1fr;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+
+        .about-content.centered .about-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-content.centered h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content.centered ul {
+            display: inline-block;
+            text-align: left;
+        }
         .about-image {
             position: relative;
             border-radius: 10px;
@@ -604,6 +633,11 @@
             padding: 4rem 0 1.5rem;
             margin-top: 4rem;
             position: relative;
+            text-align: center;
+            max-width: 1000px; 
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 4rem;
         }
 
         .footer-wave {
@@ -832,86 +866,96 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>Christian Deese</h1>
-            <p>Unreal Engine Game Programmer</p>
-            <a href="#projects" class="button">My Work</a>
+            <h1>Escape Velocity</h1>
+            <p>Made in Unreal Engine</p>
         </div>
     </header>
     
     <nav id="main-nav">
         <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-code"></i>
-                <span>DevPortfolio</span>
-            </div>
-            <button class="mobile-menu-btn" id="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links" id="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
+            <a href="../index.html" class="button">Home</a>
     </nav>
     
     <div class="container">
         <section id="about" class="section">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="/api/placeholder/500/600" alt="Profile Image">
+                    <img src="../img/escape-velocity/escape-velocity-gameplay-perspective.png" alt="Escape Velocity Image">
                 </div>
                 <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>Junior Game Programmer with an interest in Game Physics.</p>
-                    <p>I bring game ideas to life!</p>
+                    <h2>Overview</h2>
+                    <p>A 3D platformer about escaping the pull of planets!</p>
+                    <p>The Player comes equipped with a propulsion cannon used for traversal.</p>
                 </div>
             </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Story</h2>
+                    <p>Explorer Sal is tasked to find a rare mineral!</p>
+                    <p>Get to the last planet.</p>
+                </div>
+                <div class="about-image">
+                    <img src="../img/escape-velocity/planets.png" alt="Escape Velocity Image">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>My Contributions</h2>
+                </div>
+            </div>
+                <figure>
+                    <h3>Dynamic Gravity System</h3>
+                    <video width="720" height="400" controls>
+                        <source src="../videos/escape-velocity/gravity.mp4" type="video/mp4">
+                        This browser does not support video.
+                    </video>
+                </figure>
+                <br>
+                <br>
+                <figure>
+                    <h3>Player Locomotion and Rotation</h3>
+                    <video width="720" height="400" controls>
+                        <source src="../videos/escape-velocity/locomotion.mp4" type="video/mp4">
+                        This browser does not support video.
+                    </video>
+                </figure>
+                <br>
+                <br>
+                <figure>
+                    <h3>UI Implementation</h3>
+                    <video width="720" height="400" controls>
+                        <source src="../videos/escape-velocity/menus.mp4" type="video/mp4">
+                        This browser does not support video.
+                    </video>
+                </figure>
         </section>
         
         <section id="projects" class="section">
-            <h2>My Projects</h2>
-            <p>Here are some of my projects! Each one developed my problem solving and development skills.</p>
-            
-            <div class="portfolio-gallery">
-                <div class="portfolio-item">
-                    <img src="./img/escape-velocity-gameplay-perspective.png" alt="Escape Velocity">
-                    <div class="portfolio-description">
-                        <div class="portfolio-category">Unreal Engine</div>
-                        <h3>Escape Velocity</h3>
-                        <p>A 3D Platforming game using dynamic gravity and propulsion launching!</p>
-                        <div class="portfolio-buttons">
-                            <a href="#" class="button">See More</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <img src="./img/looterland.png" alt="Looterland">
-                    <div class="portfolio-description">
-                        <div class="portfolio-category">Unity</div>
-                        <h3>Looterland</h3>
-                        <p>A 3D pac-man inspired game about shoplifting.</p>
-                        <div class="portfolio-buttons">
-                            <a href="#" class="button">See More</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <img src="./img/slingin-macros.png" alt="Slingin Macros">
-                    <div class="portfolio-description">
-                        <div class="portfolio-category">Unity VR</div>
-                        <h3>Slingin' Macros</h3>
-                        <p>A VR game about feeding customers by throwing food!</p>
-                        <div class="portfolio-buttons">
-                            <a href="#" class="button">See More</a>
-                        </div>
-                    </div>
-                </div>
+            <div style="text-align: center;">
+                <h2><a href="./EscapeVelocityCode.html" class="button">See My Code</a></h2>
             </div>
         </section>
         
+        <section id="other-contributions" class="section">
+            <div class="about-content centered spaced-top">
+                <div class="about-text">
+                    <h2>Other Contributions</h2>
+                    <ul>
+                        <li>Documentation</li>
+                        <li>Level Sequence</li>
+                        <li>Checkpoints</li>
+                        <li>Gameplay Balancing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
     </div>
     <a href="#" class="back-to-top" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
@@ -996,232 +1040,8 @@
             });
         });
     </script>
-</body>
-</html>   
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Website</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-        
-        header {
-            background-color: #4285f4;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        nav {
-            background-color: #333;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0 1rem;
-            transition: color 0.3s ease;
-        }
-        
-        nav a:hover {
-            color: #4285f4;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        section {
-            margin: 2rem 0;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-        
-        .button {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: #4285f4;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        
-        .button:hover {
-            background-color: #3367d6;
-        }
-        
-        /* Portfolio Gallery Styles */
-        .portfolio-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .portfolio-item {
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .portfolio-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .portfolio-description {
-            padding: 1.5rem;
-        }
-        
-        .portfolio-description h3 {
-            margin-top: 0;
-            color: #4285f4;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-        }
-        
-        #form-status {
-            margin: 1rem 0;
-            padding: 1rem;
-            border-radius: 4px;
-            display: none;
-        }
-        
-        .success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block !important;
-        }
-        
-        .error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block !important;
-        }
-        
-        .contact-info {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hosted on GitHub Pages</p>
-    </header>
-    
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I'm a game programmer passionate exciting gameplay experiences! This site was created using GitHub Pages.</p>
-        </section>
-        
-        <section id="projects">
-            <h2>My Projects</h2>
-            <p>Here are some projects I've been working on:</p>
-            
-            <div class="portfolio-gallery">
-                <div class="portfolio-item">
-                    <img src="./img/escape-velocity-gameplay-perspective.png" alt="Escape Velocity">
-                    <div class="portfolio-description">
-                        <h3>Escape Velocity</h3>
-                        <p>This is a description of your first project. Explain what technologies you used and what problems you solved.</p>
-                        <a href="#" class="button">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <img src="./img/looterland.png" alt="Looterland">
-                    <div class="portfolio-description">
-                        <h3>Looterland</h3>
-                        <p>This is a description of your second project. Explain what technologies you used and what problems you solved.</p>
-                        <a href="#" class="button">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <img src="./img/slingin-macros-logo.png" alt="Slingin Macros">
-                    <div class="portfolio-description">
-                        <h3>Slingin' Macros</h3>
-                        <p>This is a description of your third project. Explain what technologies you used and what problems you solved.</p>
-                        <a href="#" class="button">View Project</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-            <div class="contact-info">
-                <p>Or reach me through:</p>
-                <p>Email: cdeesemail@gmail.com</p>
-                <p>GitHub: <a href="https://github.com/chdeese">github.com/chdeese</a></p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/chdeese">linkedin.com/in/chdeese</a></p>
-            </div>
-        </section>
-    </div>
-    
-    <footer>
+        <footer>
         <p>&copy; 2025 Christian Deese. All rights reserved.</p>
     </footer>
 </body>
-</html>
+</html>   
