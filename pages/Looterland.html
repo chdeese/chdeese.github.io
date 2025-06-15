@@ -74,7 +74,7 @@
 
         p {
             margin-bottom: 1.5rem;
-            color: var(--gray-color);
+            color: var(--dark-color);
         }
         
         a {
@@ -880,12 +880,13 @@
         <section id="about" class="section">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="../img/escape-velocity/escape-velocity-gameplay-perspective.png" alt="Escape Velocity Image">
+                    <img src="../img/looterland/looterland-front-view.png" alt="Looterland Image">
                 </div>
                 <div class="about-text">
                     <h2>Overview</h2>
-                    <p>A 3D platformer about escaping the pull of planets!</p>
-                    <p>The Player comes equipped with a propulsion cannon used for traversal.</p>
+                    <p>A Pac-man inspired arcade game about looting a store.</p>
+                    <p>Accumulate score and avoid guards to keep your loot!</p>
+                    <p>Check it out <a href="https://looter-land.itch.io/looter-land">here</a> on itch.io.</p>
                 </div>
             </div>
         </section>
@@ -899,12 +900,14 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Dynamic Gravity System</h3>
-                    <p>Use GravitySources to rotate the GravityPlayerController.</p>
+                    <h3>Loot Pool and Item Spawning System</h3>
+                    <p>Implemented a loot pool system using ScriptableObjects for different collectable tiers.</p>
+                    <p>Tiers have varying spawn rates!</p>
+                    <p>Spawn regions are used to randomly place collectables when entering a new area.</p>
                 </div>
                 <div class="about-image">
                     <video width="720" height="400" controls>
-                        <source src="../videos/escape-velocity/gravity.mp4" type="video/mp4">
+                        <source src="../videos/looterland/looterland-items.mp4" type="video/mp4">
                         This browser does not support video.
                     </video>
                 </div>
@@ -913,12 +916,13 @@
             <br>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Player Locomotion and Rotation</h3>
-                    <p>Rotate the player in many ways and correct locomotion with rotation.</p>
+                    <h3>Hazards and Speed Boost effect</h3>
+                    <p>I created two types of Hazards that can slow down both Guards and the Player.</p>
+                    <p>Also was responsible for creating the <em>wizard</em>-speed effect!</p>
                 </div>
                 <div class="about-image">
                     <video width="720" height="400" controls>
-                        <source src="../videos/escape-velocity/locomotion.mp4" type="video/mp4">
+                        <source src="../videos/looterland/looterland-effects.mp4" type="video/mp4">
                         This browser does not support video.
                     </video>
                 </div>
@@ -927,26 +931,37 @@
             <br>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>UI Implementation</h3>
-                    <p>Most UI was developed by myself.</p>
+                    <h3>VFX, Animations, and Audio Implementations</h3>
+                    <p>I built the underlying systems for audio, VFX, and character animations and integrated them into the game.</p>
                 </div>
                 <div class="about-image">
                     <video width="720" height="400" controls>
-                        <source src="../videos/escape-velocity/menus.mp4" type="video/mp4">
+                        <source src="../videos/looterland/looterland-sfx-and-vfx.mp4" type="video/mp4">
                         This browser does not support video.
                     </video>
                 </div>
             </div>
         </section>
         
+        <section class="section">
+            <div class="about-content centered spaced-top">
+                <div class="about-text">
+                    <h2>Documents</h2>
+                    <ul>
+                        <li><a href="../docs/looterland/looterland-gdd.pdf">Game Design Document</a></li>
+                        <li><a href="../docs/looterland/looterland-tdd.pdf">Technical Design Document</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="other-contributions" class="section">
             <div class="about-content centered spaced-top">
                 <div class="about-text">
                     <h2>Other Contributions</h2>
                     <ul>
                         <li>Documentation</li>
-                        <li>Level Sequence</li>
-                        <li>Checkpoints</li>
+                        <li>Game Design</li>
                         <li>Gameplay Balancing</li>
                     </ul>
                 </div>
