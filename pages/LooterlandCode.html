@@ -974,13 +974,13 @@
                         <nav class="toc-nav">
                             <ul class="toc-list">
                                 <li class="toc-item">
-                                    <a href="#gravity-system" class="toc-link">Dynamic Gravity System</a>
+                                    <a href="#loot-and-spawning" class="toc-link">Loot Pool and Item Spawning</a>
                                 </li>
                                 <li class="toc-item">
-                                    <a href="#player-movement" class="toc-link">Player Rotation and Locomotion</a>
+                                    <a href="#hazards-and-effects" class="toc-link">Hazards and Speed Boost</a>
                                 </li>
                                 <li class="toc-item">
-                                    <a href="#user-interface" class="toc-link">User Interface</a>
+                                    <a href="#asset-implementations" class="toc-link">VFX, Animations, and Audio</a>
                                 </li>
                             </ul>
                         </nav>
@@ -989,118 +989,223 @@
             </div>
         </section>
 
-        <section id="gravity-system" class="section">
+        <section id="loot-and-spawning" class="section">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Dynamic Gravity System</h2>
-                    <p>I created three types of Gravity Platforms, two of which are unused in the final game.</p>
-                    <p>All share a base class <em>GravitySource</em>, which contains a UCurveFloat for dynamic gravity strengths.</p>
+                    <h2>Loot Pool and Item Spawning</h2>
+                    <p>Collectables are contained in ScriptableObjects that seperate groups of collectables for tiering.</p>
+                    <p>The main level contains "Spawn Regions" which are used to detect the player and refresh collectables in that "Region".</p>
                 </div>
                 <div class="about-image">
-                    <img src="../img/escape-velocity/planets.png" alt="Platform Types">
+                    <img src="../img/looterland/looterland-collectables.png" alt="Collectables">
                 </div>
             </div>
+            <br>
+            <br>
             <div class="about-text">
-                <h2><em>GravitySource</em> C++ code</h2>
-            </div>
-            <div class="about-text">
-                <figure>
-                    <figcaption>
-                        Property used to store a UCurveFloat for curved gravity strength.
-                    </figcaption>
-                    <img src="../img/escape-velocity/gravity-source-header.png">
-                </figure>
-            </div>
-            <div class="about-text">
-                <h2><em>GravityPlayerController</em> C++ code</h2>
+                <h2><em>Collectable Collection Scriptable Object</em> C# code</h2>
             </div>
             <div class="about-text">
                 <figure>
                     <figcaption>
-                        GravityPlayerController - header
+                        Stores a list of collectables.
                     </figcaption>
-                    <img src="../img/escape-velocity/gravity-player-controller-header.png">
-                </figure>
-                <br>
-                <br>
-                <figure>
-                    <figcaption>
-                        GravityPlayerController - <em>UpdateGravityRotation</em>
-                    </figcaption>
-                    <img src="../img/escape-velocity/gravity-player-controller-update-rotation.png">
-                </figure>
-                <br>
-                <br>
-                <figure>
-                    <figcaption>
-                        GravityPlayerController - Custom Input
-                    </figcaption>
-                    <img src="../img/escape-velocity/gravity-player-controller-input.png">
-                </figure>
-                <br>
-                <br>
-                <figure>
-                    <figcaption>
-                        GravityPlayerController - Get Rotations
-                    </figcaption>
-                    <img src="../img/escape-velocity/gravity-player-controller-get-rotations.png">
+                    <img src="../img/looterland/collection-inspector.png">
+                    <img src="../img/looterland/collections.png">
                 </figure>
             </div>
-            <div class="embed-about-text">
-                <h2>Player-Gravity Blueprint Implementations</h2>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Collectable</em> C# code</h2>
             </div>
-            <figure>
-                <figcaption>
-                    Collects overlapping gravity fields. Executed on BeginPlay.
-                </figcaption>
-                <iframe src="https://blueprintue.com/render/e9xeqj0j/" scrolling="no" allowfullscreen></iframe>
-            </figure>
-
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Stores related data for each collectable such as it's ID, name, and cash value.
+                    </figcaption>
+                    <img src="../img/looterland/collectable-data-inspector.png">
+                    <br>
+                    <img src="../img/looterland/collectable-data.png">
+                    <br>
+                    <figcaption>
+                        Also contains functionality for delaying pickup.
+                        This is used to delay picking up cash lost from getting hit by a guard.
+                    </figcaption>
+                    <img src="../img/looterland/collectable-pickup-delay.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Vanishing Collectables</em> C# code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Collectable_Vanish is a script added to collectables that makes those collectables "blink" in and out of existance for a duration, then despawns them.
+                    </figcaption>
+                    <img src="../img/looterland/collectable-vanish.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>SpawnAreas Scriptable Object</em> C# code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Stores each spawn position in a SpawnArea/Region for placing collectables into the scene.
+                    </figcaption>
+                    <img src="../img/looterland/regions.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Region</em> C# code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Regions contain groups of collectables and spawn chance data for randomly spawning collectables in the area.
+                        They also contain position data for placing collectables in predetermined locations.
+                    </figcaption>
+                    <img src="../img/looterland/region-inspector.png">
+                    <br>
+                    <img src="../img/looterland/region-properties.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>PlayerRegion</em> C# code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        PlayerRegion keeps track of the regions that are overlapping the player.
+                        Regions overlapping the player spawn collectables.
+                    </figcaption>
+                    <img src="../img/looterland/region-player.png">
+                </figure>
+            </div>
         </section>
 
-        <section id="player-movement" class="section">
+        <section id="hazards-and-effects" class="section">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Player Rotation and Locomotion</h2>
-                    <p>The player's upper body rotates to face the direction the camera is facing when on the surface of a planet.</p>
-                    <p>The player blueprint passes input data to GravityPlayerController to be processed relative to gravity.</p>
-                    <p>The user can also rotate the player 180 degrees to propel themselves forwards. </p>
+                    <h2>Hazards and Speed Boost</h2>
+                    <p>There are two types of "spill" hazards, a different effect is applied when walking over each type.</p>
+                    <p>Pink spills are a sticky substance slow down both the Player and Guards.</p>
+                    <p>Blue spills are a slippery liquid that restricts characters from changing their movement direction.</p>
+                    <p>Yellow spills are spilled cans of <em>Wizard Speed</em> which are collectables that apply a speed effect to the player. Walking over this spill type applies that same speed boost effect.</p>
                 </div>
                 <div class="about-image">
-                    <img src="../img/escape-velocity/planets.png" alt="Platform Types">
+                    <video width="720" height="400" controls>
+                        <source src="../videos/looterland/looterland-effects.mp4" type="video/mp4">
+                        This browser does not support video.
+                    </video>
                 </div>
             </div>
-            <div class="embed-about-text">
-                <h2>Player Rotation/Locomotion Blueprint Implementation</h2>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Hazards</em> C# code</h2>
             </div>
-            <figure>
-                <figcaption>
-                    Applies rotation input to GravityPlayerController and calculates relative pitch for torso-rotation. Executed on camera input received.
-                </figcaption>
-                <iframe src="https://blueprintue.com/render/ea2y0nx8/" scrolling="no" allowfullscreen></iframe>
-            </figure>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Applies a hazard effect to a character with a CharacterHazardBehavior component.
+                    </figcaption>
+                    <img src="../img/looterland/hazards.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>CharacterHazardBehavior</em> C# code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Properties used for managing hazard effects to be applied to a character.
+                    </figcaption>
+                    <img src="../img/looterland/hazards.png">
+                </figure>
+                <figure>
+                    <figcaption>
+                        Applies an effect to a character by altering the character's physics material.
+                        Also triggers related VFX and animations.
+                    </figcaption>
+                    <img src="../img/looterland/characterhazardbehavior-physics.png">
+                </figure>
+                <figure>
+                    <figcaption>
+                        Defaults a character back to their original physics after the effect duration is spent.
+                    </figcaption>
+                    <img src="../img/looterland/characterhazardbehavior-default.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>CharacterHazardBehavior</em> C# code</h2>
+            </div>
         </section>
 
-        <section id="user-interface" class="section">
+        <section id="asset-implementations" class="section">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>User Interface</h2>
-                    <p>I designed functionality for most UI elements. </p>
-                    <p>All menus use custom widgets to combine input received from gamepad and keyboard interaction.</p>
+                    <h2>VFX, Animations, and Audio</h2>
+                    <p>VFX, Animations, and Audio cues were implemented by myself, including connecting respective files to them.</p>
                 </div>
                 <div class="about-image">
                     <img src="../img/escape-velocity/planets.png" alt="Platform Types">
                 </div>
             </div>
-            <div class="embed-about-text">
-                <h2>Custom Widgets Blueprint Implementations</h2>
+            <h1>VFX</h1>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Liquid Effect</em> C# code</h2>
             </div>
-            <figure>
-                <figcaption>
-                    Custom Button.
-                </figcaption>
-                <iframe src="https://blueprintue.com/render/s2b7l049/" scrolling="no" allowfullscreen></iframe>
-            </figure>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Spawns particle systems for a liquid effect on Play(), disables these effects on Stop().
+                        Called by CharacterHazardBehavior.
+                    </figcaption>
+                    <img src="../img/looterland/vfx-liquid.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Player Blink</em> C# code</h2>
+                <p>Spawns particle systems for a liquid effect on Play(), disables these effects on Stop().</p>
+                <p>Called by CharacterHazardBehavior.</p>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Properties for PlayerBlink.
+                    </figcaption>
+                    <img src="../img/looterland/player-blink-properties.png">
+                </figure>
+                <br>
+                <br>
+                <figure>
+                    <figcaption>
+                        Untilizes a coroutine to "blink" the player in and out of existance for an invulnerability period duration.
+                        Used to protect the player from repeated "hits" by Gaurds.
+                    </figcaption>
+                    <img src="../img/looterland/player-blink-functions.png">
+                </figure>
+            </div>
+            <h1>Animations</h1>
+            <h1>Audio</h1>
     </div>
     <a href="#" class="back-to-top" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
