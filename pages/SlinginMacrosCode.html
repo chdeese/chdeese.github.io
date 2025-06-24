@@ -974,13 +974,13 @@
                         <nav class="toc-nav">
                             <ul class="toc-list">
                                 <li class="toc-item">
-                                    <a href="#gravity-system" class="toc-link">Dynamic Gravity System</a>
+                                    <a href="#game-loop" class="toc-link">Game Loop System</a>
                                 </li>
                                 <li class="toc-item">
-                                    <a href="#player-movement" class="toc-link">Player Rotation and Locomotion</a>
+                                    <a href="#customers" class="toc-link">Customer AI</a>
                                 </li>
                                 <li class="toc-item">
-                                    <a href="#user-interface" class="toc-link">User Interface</a>
+                                    <a href="#asset-implementations" class="toc-link">Audio, UX, and UI Implementation</a>
                                 </li>
                             </ul>
                         </nav>
@@ -989,10 +989,10 @@
             </div>
         </section>
 
-        <section id="gravity-system" class="section">
+        <section id="game-loop" class="section">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Dynamic Gravity System</h2>
+                    <h2>Game Loop System</h2>
                     <p>I created three types of Gravity Platforms, two of which are unused in the final game.</p>
                     <p>All share a base class <em>GravitySource</em>, which contains a UCurveFloat for dynamic gravity strengths.</p>
                 </div>
@@ -1029,22 +1029,6 @@
                     </figcaption>
                     <img src="../img/escape-velocity/gravity-player-controller-update-rotation.png">
                 </figure>
-                <br>
-                <br>
-                <figure>
-                    <figcaption>
-                        GravityPlayerController - Custom Input
-                    </figcaption>
-                    <img src="../img/escape-velocity/gravity-player-controller-input.png">
-                </figure>
-                <br>
-                <br>
-                <figure>
-                    <figcaption>
-                        GravityPlayerController - Get Rotations
-                    </figcaption>
-                    <img src="../img/escape-velocity/gravity-player-controller-get-rotations.png">
-                </figure>
             </div>
             <div class="embed-about-text">
                 <h2>Player-Gravity Blueprint Implementations</h2>
@@ -1057,10 +1041,10 @@
             </figure>
         </section>
 
-        <section id="player-movement" class="section">
+        <section id="customers" class="section">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Player Rotation and Locomotion</h2>
+                    <h2>Customer AI</h2>
                     <p>The player's upper body rotates to face the direction the camera is facing when on the surface of a planet.</p>
                     <p>The player blueprint passes input data to GravityPlayerController to be processed relative to gravity.</p>
                     <p>The user can also rotate the player 180 degrees to propel themselves forwards. </p>
@@ -1070,36 +1054,86 @@
                 </div>
             </div>
             <div class="embed-about-text">
-                <h2>Player Rotation/Locomotion Blueprint Implementation</h2>
+                <h2><em>CustomerBehavior</em> C# code</h2>
             </div>
             <figure>
                 <figcaption>
-                    Applies rotation input to GravityPlayerController and calculates relative pitch for torso-rotation. Executed on camera input received.
+                    Properties for managing customer behavior.
                 </figcaption>
-                <iframe src="https://blueprintue.com/render/ea2y0nx8/" scrolling="no" allowfullscreen></iframe>
+                <img src="../img/slingin-macros/customerbehavior-properties.png" alt="Code">
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    OnTriggerEnter - Processes Customer interaction with thrown food.
+                </figcaption>
+                <figcaption>
+                    FixedUpdate - Points the customer towards the next position on their path and rotates the customer smoothly.
+                </figcaption>
+                <img src="../img/slingin-macros/customerbehavior-functions.png" alt="Code">
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    InitOrRefresh - Resets or begins customer behavior to go down a path.
+                </figcaption>
+                <figcaption>
+                    DespawnSatisfied/DespawnEnraged - Used to return customer to object pool and update game-loop data.
+                </figcaption>
+                <img src="../img/slingin-macros/customerbehavior-management.png" alt="Code">
+            </figure>
+            <br>
+            <br>
+            <div class="embed-about-text">
+                <h2><em>EntitySpawner</em> C# code</h2>
+            </div>
+            <figure>
+                <figcaption>
+                    Properties for managing customer spawning.
+                </figcaption>
+                <img src="../img/slingin-macros/entityspawner-properties.png" alt="Code">
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Spawns customer from object pool or creates new customer at a random "lane" and assigns a path to them.
+                </figcaption>
+                <img src="../img/slingin-macros/entityspawner-spawn.png" alt="Code">
+            </figure>
+            <br>
+            <br>
+            <figure>
+                <figcaption>
+                    Functionality for despawning customers, playing animations, and processing object pool references.
+                </figcaption>
+                <img src="../img/slingin-macros/entityspawner-despawn.png" alt="Code">
             </figure>
         </section>
 
-        <section id="user-interface" class="section">
+        <section id="asset-implementations" class="section">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>User Interface</h2>
+                    <h2>Audio, UX, and UI Implementation</h2>
                     <p>I designed functionality for most UI elements. </p>
-                    <p>All menus use custom widgets to combine input received from gamepad and keyboard interaction.</p>
                 </div>
                 <div class="about-image">
                     <img src="../img/escape-velocity/planets.png" alt="Platform Types">
                 </div>
             </div>
             <div class="embed-about-text">
-                <h2>Custom Widgets Blueprint Implementations</h2>
+                <h2><em>Sound Manager</em> C# code</h2>
             </div>
             <figure>
                 <figcaption>
-                    Custom Button.
+                    Plays music on awake and manages music volume with slider input.
                 </figcaption>
-                <iframe src="https://blueprintue.com/render/s2b7l049/" scrolling="no" allowfullscreen></iframe>
+                <img src="../img/slingin-macros/soundmanager-inspector.png" alt="Inspector Panel">
+                <img src="../img/slingin-macros/soundmanager.png" alt="Code">
             </figure> 
+        </section>
     </div>
     <a href="#" class="back-to-top" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
