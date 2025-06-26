@@ -993,61 +993,45 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>Game Loop System</h2>
-                    <p>I created three types of Gravity Platforms, two of which are unused in the final game.</p>
-                    <p>All share a base class <em>GravitySource</em>, which contains a UCurveFloat for dynamic gravity strengths.</p>
+                    <p>Our game uses a game loop system that increments the current round once all customers are spawned based upon the current round count.</p>
                 </div>
                 <div class="about-image">
                     <img src="../img/slingin-macros/slingin-macros-round.png" alt="Rounds">
                 </div>
             </div>
             <div class="about-text">
-                <h2><em>GravitySource</em> C++ code</h2>
+                <h2><em>Game Round System</em> C# code</h2>
             </div>
+            <img src="../img/slingin-macros/gameroundsystem-inspector.png" alt="Inspector">
             <div class="about-text">
                 <figure>
                     <figcaption>
-                        Property used to store a UCurveFloat for curved gravity strength.
+                        Properties for GameRoundSystem.
                     </figcaption>
-                    <img src="../img/escape-velocity/gravity-source-header.png">
-                </figure>
-            </div>
-            <div class="about-text">
-                <h2><em>GravityPlayerController</em> C++ code</h2>
-            </div>
-            <div class="about-text">
-                <figure>
-                    <figcaption>
-                        GravityPlayerController - header
-                    </figcaption>
-                    <img src="../img/escape-velocity/gravity-player-controller-header.png">
+                    <img src="../img/slingin-macros/gameroundsystem-properties.png" alt="Code">
                 </figure>
                 <br>
+                <figure>
+                    <figcaption>
+                        Processes the current round and how many customers are left to spawn.
+                    </figcaption>
+                    <img src="../img/slingin-macros/gameroundsystem-update.png" alt="Code">
+                </figure>
                 <br>
                 <figure>
                     <figcaption>
-                        GravityPlayerController - <em>UpdateGravityRotation</em>
+                        Helper functions for managing the game round system.
                     </figcaption>
-                    <img src="../img/escape-velocity/gravity-player-controller-update-rotation.png">
+                    <img src="../img/slingin-macros/gameroundsystem-functions.png" alt="Code">
                 </figure>
             </div>
-            <div class="embed-about-text">
-                <h2>Player-Gravity Blueprint Implementations</h2>
-            </div>
-            <figure>
-                <figcaption>
-                    Collects overlapping gravity fields. Executed on BeginPlay.
-                </figcaption>
-                <iframe src="https://blueprintue.com/render/e9xeqj0j/" scrolling="no" allowfullscreen></iframe>
-            </figure>
         </section>
 
         <section id="customers" class="section">
             <div class="about-content">
                 <div class="about-text">
                     <h2>Customer AI</h2>
-                    <p>The player's upper body rotates to face the direction the camera is facing when on the surface of a planet.</p>
-                    <p>The player blueprint passes input data to GravityPlayerController to be processed relative to gravity.</p>
-                    <p>The user can also rotate the player 180 degrees to propel themselves forwards. </p>
+                    <p>Customers chose a path to follow from an array of paths attached to the spot they randomly spawned to.</p>
                 </div>
                 <div class="about-image">
                     <img src="../img/slingin-macros/slingin-macros-customer.png" alt="Customer AI">
@@ -1111,18 +1095,43 @@
                 </figcaption>
                 <img src="../img/slingin-macros/entityspawner-despawn.png" alt="Code">
             </figure>
+            <br>
+            <div class="about-text">
+                <h2><em>SpawnerSpot</em> C# code</h2>
+            </div>
+            <figure>
+                <figcaption>
+                    Stores paths for Customers to chose from when spawning.
+                </figcaption>
+                <img src="../img/slingin-macros/spawnerspot-inspector.png" alt="Inspector">
+                <br>
+                <img src="../img/slingin-macros/spawnerspot.png" alt="Code">
+            </figure>
+            <br>
+            <div class="about-text">
+                <h2><em>LanePath</em> C# code</h2>
+            </div>
+            <figure>
+                <figcaption>
+                    Stores the start and end point of a path for a Customer to navigate using AI navigation.
+                </figcaption>
+                <img src="../img/slingin-macros/spawnerspot-inspector.png" alt="Inspector">
+                <br>
+                <img src="../img/slingin-macros/lanepath.png" alt="Code">
+            </figure>
         </section>
 
         <section id="asset-implementations" class="section">
             <div class="about-content">
                 <div class="about-text">
                     <h2>Audio, UX, and UI Implementation</h2>
-                    <p>I designed functionality for most UI elements. </p>
+                    <p>Custom systems were designed to implement Audio into the game and UX/UI elements for keeping track of the game status.</p>
                 </div>
                 <div class="about-image">
                     <img src="../img/slingin-macros/slingin-macros-ux.png" alt="Health Jar">
                 </div>
             </div>
+            <h1>Audio</h1>
             <div class="embed-about-text">
                 <h2><em>Sound Manager</em> C# code</h2>
             </div>
@@ -1133,7 +1142,41 @@
                 <img src="../img/slingin-macros/soundmanager-inspector.png" alt="Inspector Panel">
                 <br>
                 <img src="../img/slingin-macros/soundmanager.png" alt="Code">
-            </figure> 
+            </figure>
+            <br>
+            <h1>UX</h1>
+            <div class="embed-about-text">
+                <h2><em>Mesh Health Indicator</em> C# code</h2>
+            </div>
+            <img src="../img/slingin-macros/meshhealthindicator-inspector.png" alt="Inspector">
+            <br>
+            <figure>
+                <figcaption>
+                    MeshHealthIndicator Properties.
+                </figcaption>
+                <img src="../img/slingin-macros/meshhealthindicator-properties.png" alt="Code">
+                <br>
+                <figcaption>
+                    Mesh swapping functions.
+                </figcaption>
+                <img src="../img/slingin-macros/meshhealthindicator-functions1.png" alt="Code">
+                <br>
+                <figcaption>
+                    Health management functions.
+                </figcaption>
+                <img src="../img/slingin-macros/meshhealthindicator-functions2.png" alt="Code">
+            </figure>
+            <h1>UI</h1>
+            <div class="about-text">
+                <h2><em>RoundUISystem</em> C# code</h2>
+            </div>
+            <img src="../img/slingin-macros/rounduisystem-inspector.png" alt="Inspector">
+            <figure>
+                <figcaption>
+                    Updates the UI text for the round count.
+                </figcaption>
+                <img src="../img/slingin-macros/rounduisystem.png" alt="Code">
+            </figure>
         </section>
     </div>
     <a href="#" class="back-to-top" id="back-to-top">
