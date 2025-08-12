@@ -726,7 +726,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 1.5rem;
             text-align: center;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 0.9rem;
         }
 
@@ -1153,11 +1153,6 @@
                     <img src="../img/looterland/characterhazardbehavior-default.png">
                 </figure>
             </div>
-            <br>
-            <br>
-            <div class="about-text">
-                <h2><em>CharacterHazardBehavior</em> C# code</h2>
-            </div>
         </section>
 
         <section id="asset-implementations" class="section">
@@ -1210,7 +1205,152 @@
                 </figure>
             </div>
             <h1>Animations</h1>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Player Animator Controller</em> Animator</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Blends movement animations and transitions from any state to alternate animations based on boolean values.
+                    </figcaption>
+                    <img src="../img/looterland/playeranimator.png">
+                </figure>
+            </div>
+            <div class="about-text">
+                <h2><em>Player Animation</em> C# code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Manages the Player's animator variables to transition between Player animations.
+                    </figcaption>
+                    <img src="../img/looterland/playeranimation.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+                <figure>
+                    <figcaption>
+                        The CharacterHazardBehavior script calls upon PlaySlip and PlayStick when colliding with a hazard.
+                    </figcaption>
+                    <img src="../img/looterland/characterhazardbehavior-physics.png">
+                </figure>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Cop Animator Controller</em> Animator</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Blends movement animations and transitions from any state to alternate animations based on boolean values.
+                    </figcaption>
+                    <img src="../img/looterland/copanimator.png">
+                </figure>
+            </div>
+            <div class="about-text">
+                <h2><em>Cop Animation</em> C# code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Manages Guard animator variables to transition between Guard animations.
+                    </figcaption>
+                    <img src="../img/looterland/copanimation.png">
+                </figure>
+                <br>
+                <br>
+                <figure>
+                    <figcaption>
+                        The CopCollision script calls upon PlayAttack when a Guard is colliding with the Player.
+                    </figcaption>
+                    <img src="../img/looterland/copcollision.png">
+                </figure>
+                <br>
+                <br>
+                <figure>
+                    <figcaption>
+                        The CharacterHazardBehavior script calls upon PlaySlip and PlayStick when colliding with a hazard.
+                    </figcaption>
+                    <img src="../img/looterland/characterhazardbehavior-physics.png">
+                </figure>
+            </div>
             <h1>Audio</h1>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Audio Source</em> Inspector</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Begins playing the music track and persists to new scenes.
+                    </figcaption>
+                    <img src="../img/looterland/audiosource-inspector.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Scene Persistance</em> C# code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Preserves an instance of a gameObject through scenes.
+                    </figcaption>
+                    <img src="../img/looterland/scenepersistance.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Reduce Audio</em> C# code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Changes the music track's volume when starting the game and when the pause menu is active.
+                    </figcaption>
+                    <img src="../img/looterland/reduceaudio.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Audio Container Scriptable Object</em> C# code</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        Stores a collection of audio tracks to be pulled from randomly.
+                    </figcaption>
+                    <img src="../img/looterland/audiocontainer.png">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <div class="about-text">
+                <h2><em>Audio Container Scriptable Object</em> Inspector</h2>
+            </div>
+            <div class="about-text">
+                <figure>
+                    <figcaption>
+                        An example of the Audio Container being used to store <em>happy</em> sound effects.
+                    </figcaption>
+                    <img src="../img/looterland/audiocontainer-inspector.png">
+                </figure>
+                <figure>
+                    <figcaption>
+                        The PlayerCollision script randomly picks a sound effect and plays it when the Player picks up a high value item.
+                    </figcaption>
+                    <img src="../img/looterland/playercollision-happyaudio.png">
+                </figure>
+            </div>
+        </section>
+            
     </div>
     <a href="#" class="back-to-top" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
@@ -1295,7 +1435,7 @@
             });
         });
     </script>
-        <footer>
+    <footer>
         <p>&copy; 2025 Christian Deese. All rights reserved.</p>
     </footer>
 </body>
